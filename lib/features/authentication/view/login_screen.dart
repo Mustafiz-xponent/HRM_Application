@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
+import 'package:hrm_application/core/widgets/custom_button_widget.dart';
 import 'package:hrm_application/features/bottom_navigation_bar_screen.dart/bottom_navigation_bar_screen.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -102,14 +103,29 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
 
-                      ShadButton(
-                        backgroundColor: AppColors.primaryColor,
-                        width: double.infinity,
-                        child: Text(
-                          'Sign in',
-                          style: AppStyles.mediumWhiteBoldTitleFontStyle,
-                        ),
-                        onPressed: () {
+                      // ShadButton(
+                      //   backgroundColor: AppColors.primaryColor,
+                      //   width: double.infinity,
+                      //   child: Text(
+                      //     'Sign in',
+                      //     style: AppStyles.mediumWhiteBoldTitleFontStyle,
+                      //   ),
+                      //   onPressed: () {
+                      //     if (_formKey.currentState!.validate()) {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               BottomNavigationBarScreen(),
+                      //         ),
+                      //       );
+                      //     }
+                      //   },
+                      // ),
+                      CustomButtonWidget(
+                        buttonTitle: "Sign in",
+                        buttonBackground: AppColors.primaryColor,
+                        onTap: () {
                           if (_formKey.currentState!.validate()) {
                             Navigator.push(
                               context,

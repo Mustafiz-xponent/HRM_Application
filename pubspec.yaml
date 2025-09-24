@@ -41,6 +41,9 @@ dependencies:
   #Google Fonts
   google_fonts: ^6.3.1
 
+  #one clock
+  one_clock: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

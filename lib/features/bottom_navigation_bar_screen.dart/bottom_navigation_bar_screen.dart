@@ -19,9 +19,9 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   int currentIndex = 0;
   List screens = [
     DashboardScreen(),
-    AttendanceScreen(),
+    // AttendanceScreen(),
     AddTasksScreen(),
-    MovementLogScreen(),
+    // MovementLogScreen(),
     ProfileScreen(),
   ];
   @override
@@ -35,7 +35,6 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         ),
 
         child: BottomNavigationBar(
-          
           elevation: 5,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
@@ -52,21 +51,19 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
               label: "Dashboard",
             ),
 
-            BottomNavigationBarItem(
-              icon: Icon(LucideIcons.clock),
-              label: "Attendance",
-            ),
-
+            // BottomNavigationBarItem(
+            //   icon: Icon(LucideIcons.clock),
+            //   label: "Attendance",
+            // ),
             BottomNavigationBarItem(
               icon: Icon(LucideIcons.plus),
               label: "Add Task",
             ),
 
-            BottomNavigationBarItem(
-              icon: Icon(LucideIcons.mapPin),
-              label: "Movement",
-            ),
-
+            // BottomNavigationBarItem(
+            //   icon: Icon(LucideIcons.mapPin),
+            //   label: "Movement",
+            // ),
             BottomNavigationBarItem(
               icon: Icon(LucideIcons.user),
               label: "Profile",
