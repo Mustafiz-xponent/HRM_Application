@@ -405,24 +405,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       itemCount: actionsData.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 6.0,
-                                offset: Offset(0, 2),
-                              ),
-                            ],
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border(
-                              left: BorderSide(
-                                color: AppColors.primaryColor,
-                                width: 5.0,
-                              ),
-                            ),
-                          ),
+                        return Card(
+                          color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
