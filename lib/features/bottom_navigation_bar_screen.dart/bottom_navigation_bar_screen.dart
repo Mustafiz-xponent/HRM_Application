@@ -17,13 +17,7 @@ class BottomNavigationBarScreen extends StatefulWidget {
 
 class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   int currentIndex = 0;
-  List screens = [
-    DashboardScreen(),
-    // AttendanceScreen(),
-    AddTasksScreen(),
-    // MovementLogScreen(),
-    ProfileScreen(),
-  ];
+  List screens = [DashboardScreen(), AddTasksScreen(), ProfileScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

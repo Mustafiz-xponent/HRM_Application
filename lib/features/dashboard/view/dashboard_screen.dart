@@ -446,108 +446,197 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
 
                 // My Tasks
-                ShadCard(
-                  child: Column(
-                    spacing: 12,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "My tasks",
-                        style: AppStyles.mediumBlackBoldTitleFontStyle,
-                      ),
+                Column(
+                  spacing: 10,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Company News",
+                      style: AppStyles.mediumBlackBoldTitleFontStyle,
+                    ),
 
-                      Text(
-                        "My Recent tasks",
-                        style: AppStyles.mediumBlackNormalTitleFontStyle,
-                      ),
-
-                      Column(
-                        spacing: 10,
-                        children: [
-                          ShadCard(
-                            backgroundColor: Color(0xfff5f8fa),
-                            padding: EdgeInsets.all(15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: 8,
-                              children: [
-                                Text(
-                                  "Complete Q4 Report",
-                                  style:
-                                      AppStyles.mediumBlackBoldTitleFontStyle,
+                    Column(
+                      spacing: 6,
+                      children: [
+                        ShadCard(
+                          backgroundColor: Color(0xffffffff),
+                          padding: EdgeInsets.all(15),
+                          child: Row(
+                            spacing: 10,
+                            children: [
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    2,
+                                  ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                color: Colors.white,
+                                child: Column(
                                   children: [
-                                    ShadBadge.outline(child: Text('Today')),
-                                    ShadBadge(
-                                      backgroundColor: Color(0xffff822e),
-                                      child: const Text('In Progress'),
+                                    Container(
+                                      color: AppColors.primaryColor,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(6.0),
+                                        child: Center(
+                                          child: Text(
+                                            "Sep",
+                                            style: AppStyles
+                                                .smallWhiteBoldTitleFontStyle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    Text(
+                                      "31",
+                                      style: AppStyles
+                                          .smallBlackBoldTitleFontStyle,
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
-                          ),
-
-                          ShadCard(
-                            backgroundColor: Color(0xfff5f8fa),
-                            padding: EdgeInsets.all(15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: 8,
-                              children: [
-                                Text(
-                                  "Team Meeting Preparation",
-                                  style:
-                                      AppStyles.mediumBlackBoldTitleFontStyle,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  spacing: 4,
                                   children: [
-                                    ShadBadge.outline(child: Text('Yesterday')),
-                                    ShadBadge(
-                                      backgroundColor: Color(0xff00c951),
-                                      child: const Text('Completed'),
+                                    Text(
+                                      "Reminder: Meeting Tomorrow",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    Text(
+                                      "This Is A Friendly Reminder That Our Team Meeting Is Scheduled For Tomorrow, At 2:00 PM",
+                                      style: AppStyles
+                                          .smallBlackNormalTitleFontStyle,
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
+                        ),
 
-                          ShadCard(
-                            backgroundColor: Color(0xfff5f8fa),
-                            padding: EdgeInsets.all(15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: 8,
-                              children: [
-                                Text(
-                                  "Client Presentation",
-                                  style:
-                                      AppStyles.mediumBlackBoldTitleFontStyle,
+                        ShadCard(
+                          backgroundColor: Color(0xffffffff),
+                          padding: EdgeInsets.all(15),
+                          child: Row(
+                            spacing: 10,
+                            children: [
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    2,
+                                  ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                color: Colors.white,
+                                child: Column(
                                   children: [
-                                    ShadBadge.outline(child: Text('Yesterday')),
-                                    ShadBadge(
-                                      backgroundColor: Color(0xff00c951),
-                                      child: const Text('Completed'),
+                                    Container(
+                                      color: AppColors.primaryColor,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(6.0),
+                                        child: Center(
+                                          child: Text(
+                                            "Sep",
+                                            style: AppStyles
+                                                .smallWhiteBoldTitleFontStyle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    Text(
+                                      "31",
+                                      style: AppStyles
+                                          .smallBlackBoldTitleFontStyle,
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  spacing: 4,
+                                  children: [
+                                    Text(
+                                      "Reminder: Meeting Tomorrow",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    Text(
+                                      "This Is A Friendly Reminder That Our Team Meeting Is Scheduled For Tomorrow, At 2:00 PM",
+                                      style: AppStyles
+                                          .smallBlackNormalTitleFontStyle,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+
+                        ShadCard(
+                          backgroundColor: Color(0xffffffff),
+                          padding: EdgeInsets.all(15),
+                          child: Row(
+                            spacing: 10,
+                            children: [
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    2,
+                                  ),
+                                ),
+                                color: Colors.white,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: AppColors.primaryColor,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(6.0),
+                                        child: Center(
+                                          child: Text(
+                                            "Sep",
+                                            style: AppStyles
+                                                .smallWhiteBoldTitleFontStyle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    Text(
+                                      "31",
+                                      style: AppStyles
+                                          .smallBlackBoldTitleFontStyle,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  spacing: 4,
+                                  children: [
+                                    Text(
+                                      "Reminder: Meeting Tomorrow",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    Text(
+                                      "This Is A Friendly Reminder That Our Team Meeting Is Scheduled For Tomorrow, At 2:00 PM",
+                                      style: AppStyles
+                                          .smallBlackNormalTitleFontStyle,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
 
                 // Monthly Attendance
@@ -591,61 +680,61 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
 
-                // Today's Schedule
-                ShadCard(
-                  child: Column(
-                    spacing: 12,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Today's Schedule",
-                        style: AppStyles.mediumBlackBoldTitleFontStyle,
-                      ),
+                // // Today's Schedule
+                // ShadCard(
+                //   child: Column(
+                //     spacing: 12,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         "Today's Schedule",
+                //         style: AppStyles.mediumBlackBoldTitleFontStyle,
+                //       ),
 
-                      ShadCard(
-                        width: double.infinity,
-                        backgroundColor: Color(0xfff5f8fa),
-                        padding: EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                //       ShadCard(
+                //         width: double.infinity,
+                //         backgroundColor: Color(0xfff5f8fa),
+                //         padding: EdgeInsets.all(15),
+                //         child: Column(
+                //           crossAxisAlignment: CrossAxisAlignment.start,
 
-                          spacing: 4,
-                          children: [
-                            Text(
-                              "Daily Standup",
-                              style: AppStyles.mediumBlackBoldTitleFontStyle,
-                            ),
-                            Text(
-                              "09:00 AM",
-                              style: AppStyles.mediumBlackNormalTitleFontStyle,
-                            ),
-                          ],
-                        ),
-                      ),
+                //           spacing: 4,
+                //           children: [
+                //             Text(
+                //               "Daily Standup",
+                //               style: AppStyles.mediumBlackBoldTitleFontStyle,
+                //             ),
+                //             Text(
+                //               "09:00 AM",
+                //               style: AppStyles.mediumBlackNormalTitleFontStyle,
+                //             ),
+                //           ],
+                //         ),
+                //       ),
 
-                      ShadCard(
-                        width: double.infinity,
-                        backgroundColor: Color(0xfff5f8fa),
-                        padding: EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                //       ShadCard(
+                //         width: double.infinity,
+                //         backgroundColor: Color(0xfff5f8fa),
+                //         padding: EdgeInsets.all(15),
+                //         child: Column(
+                //           crossAxisAlignment: CrossAxisAlignment.start,
 
-                          spacing: 4,
-                          children: [
-                            Text(
-                              "Project Review",
-                              style: AppStyles.mediumBlackBoldTitleFontStyle,
-                            ),
-                            Text(
-                              "03:30 PM",
-                              style: AppStyles.mediumBlackNormalTitleFontStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                //           spacing: 4,
+                //           children: [
+                //             Text(
+                //               "Project Review",
+                //               style: AppStyles.mediumBlackBoldTitleFontStyle,
+                //             ),
+                //             Text(
+                //               "03:30 PM",
+                //               style: AppStyles.mediumBlackNormalTitleFontStyle,
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),
