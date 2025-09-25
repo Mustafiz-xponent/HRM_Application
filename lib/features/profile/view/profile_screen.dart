@@ -15,6 +15,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   bool isPersonalInfoEditable = false;
   bool isProfessionalDetailsEditable = false;
+  bool isEmergencyContactEditable = false;
 
   final departmentList = [
     'Engineering',
@@ -603,6 +604,174 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           setState(() {
                                             isProfessionalDetailsEditable =
                                                 false;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 15),
+
+              // Add Emergency Contact
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ShadCard(
+                  child: Column(
+                    spacing: 15,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 10,
+                            children: [
+                              Icon(
+                                LucideIcons.users,
+                                size: 20,
+                                color: AppColors.primaryColor,
+                              ),
+                              Text(
+                                "Emergency Contact",
+                                style: AppStyles.mediumBlackBoldTitleFontStyle,
+                              ),
+                            ],
+                          ),
+
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isEmergencyContactEditable = true;
+                              });
+                            },
+                            child: Visibility(
+                              visible: !isEmergencyContactEditable,
+                              child: Icon(LucideIcons.plus, size: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      !isEmergencyContactEditable
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Add Emergency Contact Details",
+                                style: AppStyles.smallBlackNormalTitleFontStyle,
+                              ),
+                            )
+                          :
+                            // Editable Mode of Emergency COntact
+                            Column(
+                              spacing: 10,
+                              children: [
+                                // Full Name Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Full Name",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text(
+                                        'Full Name of the Emergency Contact',
+                                      ),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                  ],
+                                ),
+
+                                // Contact Number Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Contact Number",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Contact Number'),
+                                      keyboardType: TextInputType.number,
+                                    ),
+                                  ],
+                                ),
+
+                                // Address Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Address",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadTextarea(
+                                      // controller: emailController,
+                                      placeholder: Text(
+                                        'Address of the Emergency Contact',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                // Linked In URL Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Relation",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text(
+                                        'e.g Siblings, Father, etc',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                // Submit and Cancel Buttons
+                                Row(
+                                  spacing: 12,
+                                  children: [
+                                    Expanded(
+                                      child: CustomButtonWidget(
+                                        buttonTitle: "Save Changes",
+
+                                        buttonBackground:
+                                            AppColors.primaryColor,
+                                        onTap: () {},
+                                      ),
+                                    ),
+
+                                    Expanded(
+                                      child: ShadButton.outline(
+                                        child: Text(
+                                          "Cancel",
+                                          style: AppStyles
+                                              .mediumBlackBoldTitleFontStyle,
+                                        ),
+
+                                        onPressed: () {
+                                          setState(() {
+                                            isEmergencyContactEditable = false;
                                           });
                                         },
                                       ),
