@@ -19,6 +19,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool isSkillsExpertiseEditable = false;
   bool isBankAccountEditable = false;
 
+  bool isEducationEditable = false;
+
   final departmentList = [
     'Engineering',
     'Marketing',
@@ -1036,6 +1038,136 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         onPressed: () {
                                           setState(() {
                                             isBankAccountEditable = false;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 15),
+
+              // Educational Information
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ShadCard(
+                  child: Column(
+                    spacing: 15,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 10,
+                            children: [
+                              Icon(
+                                LucideIcons.graduationCap,
+                                size: 20,
+                                color: AppColors.primaryColor,
+                              ),
+                              Text(
+                                "Education",
+                                style: AppStyles.mediumBlackBoldTitleFontStyle,
+                              ),
+                            ],
+                          ),
+
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isEducationEditable = true;
+                              });
+                            },
+                            child: Visibility(
+                              visible: !isEducationEditable,
+                              child: Icon(LucideIcons.plus, size: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      !isEducationEditable
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Add your Educational Background",
+                                style: AppStyles.smallBlackNormalTitleFontStyle,
+                              ),
+                            )
+                          :
+                            // Editable Mode of Skills and Expertise
+                            Column(
+                              spacing: 10,
+                              children: [
+                                // Full Name Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Institution Name",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Institution Name'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    Text(
+                                      "Degree Name",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Degree Name'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    Text(
+                                      "Passing Year",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Passing Year'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                  ],
+                                ),
+
+                                // Submit and Cancel Buttons
+                                Row(
+                                  spacing: 12,
+                                  children: [
+                                    Expanded(
+                                      child: CustomButtonWidget(
+                                        buttonTitle: "Save Changes",
+
+                                        buttonBackground:
+                                            AppColors.primaryColor,
+                                        onTap: () {},
+                                      ),
+                                    ),
+
+                                    Expanded(
+                                      child: ShadButton.outline(
+                                        child: Text(
+                                          "Cancel",
+                                          style: AppStyles
+                                              .mediumBlackBoldTitleFontStyle,
+                                        ),
+
+                                        onPressed: () {
+                                          setState(() {
+                                            isEducationEditable = false;
                                           });
                                         },
                                       ),
