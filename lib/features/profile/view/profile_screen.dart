@@ -17,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool isProfessionalDetailsEditable = false;
   bool isEmergencyContactEditable = false;
   bool isSkillsExpertiseEditable = false;
+  bool isBankAccountEditable = false;
 
   final departmentList = [
     'Engineering',
@@ -906,12 +907,147 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
 
+              SizedBox(height: 15),
 
+              // Bank Account Information
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ShadCard(
+                  child: Column(
+                    spacing: 15,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 10,
+                            children: [
+                              Icon(
+                                LucideIcons.creditCard,
+                                size: 20,
+                                color: AppColors.primaryColor,
+                              ),
+                              Text(
+                                "Bank Account Information",
+                                style: AppStyles.mediumBlackBoldTitleFontStyle,
+                              ),
+                            ],
+                          ),
 
-              
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isBankAccountEditable = true;
+                              });
+                            },
+                            child: Visibility(
+                              visible: !isBankAccountEditable,
+                              child: Icon(LucideIcons.plus, size: 16),
+                            ),
+                          ),
+                        ],
+                      ),
 
+                      !isBankAccountEditable
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Add your skills and expertise",
+                                style: AppStyles.smallBlackNormalTitleFontStyle,
+                              ),
+                            )
+                          :
+                            // Editable Mode of Skills and Expertise
+                            Column(
+                              spacing: 10,
+                              children: [
+                                // Full Name Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Account Name",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
 
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Account Name'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    Text(
+                                      "Account Number",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Account Number'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    Text(
+                                      "Branch Name",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Branch'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
 
+                                    // Routing
+                                    Text(
+                                      "Routing Number",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Routing Number'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                  ],
+                                ),
+
+                                // Submit and Cancel Buttons
+                                Row(
+                                  spacing: 12,
+                                  children: [
+                                    Expanded(
+                                      child: CustomButtonWidget(
+                                        buttonTitle: "Save Changes",
+
+                                        buttonBackground:
+                                            AppColors.primaryColor,
+                                        onTap: () {},
+                                      ),
+                                    ),
+
+                                    Expanded(
+                                      child: ShadButton.outline(
+                                        child: Text(
+                                          "Cancel",
+                                          style: AppStyles
+                                              .mediumBlackBoldTitleFontStyle,
+                                        ),
+
+                                        onPressed: () {
+                                          setState(() {
+                                            isBankAccountEditable = false;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
