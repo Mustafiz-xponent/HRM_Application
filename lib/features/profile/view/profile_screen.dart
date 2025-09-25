@@ -18,8 +18,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool isEmergencyContactEditable = false;
   bool isSkillsExpertiseEditable = false;
   bool isBankAccountEditable = false;
-
   bool isEducationEditable = false;
+
+  List skillsControllerList = [TextEditingController()];
 
   final departmentList = [
     'Engineering',
@@ -846,29 +847,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 // Full Name Input Field
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Your Skills",
-                                      style: AppStyles
-                                          .mediumBlackBoldTitleFontStyle,
-                                    ),
+                                  children: List.generate(
+                                    skillsControllerList.length,
+                                    (index) {
+                                      return Row(
+                                        spacing: 6,
+                                        children: [
+                                          Expanded(
+                                            child: ShadInputFormField(
+                                              controller:
+                                                  skillsControllerList[index],
+                                              placeholder: Text('Yours Skills'),
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
+                                            ),
+                                          ),
 
-                                    ShadInputFormField(
-                                      // controller: emailController,
-                                      placeholder: Text('Yours Skills'),
-                                      keyboardType: TextInputType.emailAddress,
-                                    ),
-                                    ShadInputFormField(
-                                      // controller: emailController,
-                                      placeholder: Text('Yours Skills'),
-                                      keyboardType: TextInputType.emailAddress,
-                                    ),
-                                    ShadInputFormField(
-                                      // controller: emailController,
-                                      placeholder: Text('Yours Skills'),
-                                      keyboardType: TextInputType.emailAddress,
-                                    ),
-                                  ],
+                                          Visibility(
+                                            visible: index != 0 ? true : false,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                if (index != 0) {
+                                                  setState(() {
+                                                    skillsControllerList
+                                                        .removeAt(index);
+                                                  });
+                                                }
+                                              },
+                                              child: CircleAvatar(
+                                                radius: 12,
+                                                backgroundColor:
+                                                    AppColors.primaryColor,
+                                                child: Center(
+                                                  child: Icon(
+                                                    LucideIcons.minus,
+                                                    color: Colors.white,
+                                                    size: 16,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+
+                                /// + Add Skill Button
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: TextButton.icon(
+                                    onPressed: () {
+                                      setState(() {
+                                        skillsControllerList.add(
+                                          TextEditingController(),
+                                        );
+                                      });
+                                    },
+                                    icon: Icon(LucideIcons.plus, size: 16),
+                                    label: Text("Add another skill"),
+                                  ),
                                 ),
 
                                 // Submit and Cancel Buttons
@@ -954,7 +993,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ? Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Add your skills and expertise",
+                                "Add your Banking Information",
                                 style: AppStyles.smallBlackNormalTitleFontStyle,
                               ),
                             )
