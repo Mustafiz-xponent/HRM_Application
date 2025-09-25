@@ -16,6 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool isPersonalInfoEditable = false;
   bool isProfessionalDetailsEditable = false;
   bool isEmergencyContactEditable = false;
+  bool isSkillsExpertiseEditable = false;
 
   final departmentList = [
     'Engineering',
@@ -784,6 +785,133 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+
+              SizedBox(height: 15),
+
+              // Skills and Experties
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ShadCard(
+                  child: Column(
+                    spacing: 15,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 10,
+                            children: [
+                              Icon(
+                                LucideIcons.star,
+                                size: 20,
+                                color: AppColors.primaryColor,
+                              ),
+                              Text(
+                                "Skills and Expertise",
+                                style: AppStyles.mediumBlackBoldTitleFontStyle,
+                              ),
+                            ],
+                          ),
+
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSkillsExpertiseEditable = true;
+                              });
+                            },
+                            child: Visibility(
+                              visible: !isSkillsExpertiseEditable,
+                              child: Icon(LucideIcons.plus, size: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      !isSkillsExpertiseEditable
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Add your skills and expertise",
+                                style: AppStyles.smallBlackNormalTitleFontStyle,
+                              ),
+                            )
+                          :
+                            // Editable Mode of Skills and Expertise
+                            Column(
+                              spacing: 10,
+                              children: [
+                                // Full Name Input Field
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Your Skills",
+                                      style: AppStyles
+                                          .mediumBlackBoldTitleFontStyle,
+                                    ),
+
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Yours Skills'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Yours Skills'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                    ShadInputFormField(
+                                      // controller: emailController,
+                                      placeholder: Text('Yours Skills'),
+                                      keyboardType: TextInputType.emailAddress,
+                                    ),
+                                  ],
+                                ),
+
+                                // Submit and Cancel Buttons
+                                Row(
+                                  spacing: 12,
+                                  children: [
+                                    Expanded(
+                                      child: CustomButtonWidget(
+                                        buttonTitle: "Save Changes",
+
+                                        buttonBackground:
+                                            AppColors.primaryColor,
+                                        onTap: () {},
+                                      ),
+                                    ),
+
+                                    Expanded(
+                                      child: ShadButton.outline(
+                                        child: Text(
+                                          "Cancel",
+                                          style: AppStyles
+                                              .mediumBlackBoldTitleFontStyle,
+                                        ),
+
+                                        onPressed: () {
+                                          setState(() {
+                                            isSkillsExpertiseEditable = false;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+              ),
+
+
+
+              
+
+
+
             ],
           ),
         ),
