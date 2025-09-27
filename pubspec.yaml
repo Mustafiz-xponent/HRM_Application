@@ -44,8 +44,8 @@ dependencies:
   #one clock
   one_clock: ^2.0.2
 
-  #Expandable
-  expandable: ^5.0.1
+  # Image Picker
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:

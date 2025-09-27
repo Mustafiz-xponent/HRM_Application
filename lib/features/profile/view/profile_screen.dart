@@ -1,8 +1,8 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
 import 'package:hrm_application/core/widgets/custom_button_widget.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -99,16 +99,117 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     Positioned(
                                       bottom: 0,
                                       right: 4,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColors.primaryColor,
-                                        ),
-                                        padding: const EdgeInsets.all(6),
-                                        child: Icon(
-                                          LucideIcons.camera,
-                                          size: 16,
-                                          color: Colors.white,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          showShadDialog(
+                                            context: context,
+                                            builder: (context) => Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 20,
+                                              ),
+                                              child: ShadDialog(
+                                                title: Text(
+                                                  "Upload Profile Picture",
+                                                  style: AppStyles
+                                                      .mediumBlackBoldTitleFontStyle,
+                                                ),
+                                                description: const Text(
+                                                  "Choose how you want to set your profile picture.",
+                                                  style: TextStyle(
+                                                    color: Colors.black54,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                                actions: [
+                                                  Column(
+                                                    children: [
+                                                      /// Gallery Button
+                                                      ShadButton.outline(
+                                                        decoration: ShadDecoration(
+                                                          border: ShadBorder.all(
+                                                            width: 1.5,
+                                                            color: AppColors
+                                                                .primaryColor,
+                                                          ),
+                                                        ),
+
+                                                        onPressed: () {
+                                                          Navigator.of(
+                                                            context,
+                                                          ).pop();
+                                                          // 📂 Handle Gallery
+                                                        },
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.photo,
+                                                              size: 18,
+                                                            ),
+                                                            SizedBox(width: 8),
+                                                            Text(
+                                                              "Choose from Gallery",
+                                                              style: AppStyles
+                                                                  .smallBlackBoldTitleFontStyle,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 12,
+                                                      ),
+
+                                                      /// Camera Button
+                                                      ShadButton(
+                                                        backgroundColor:
+                                                            AppColors
+                                                                .primaryColor,
+                                                        onPressed: () {
+                                                          Navigator.of(
+                                                            context,
+                                                          ).pop();
+                                                          // 📷 Handle Camera
+                                                        },
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.camera_alt,
+                                                              size: 18,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            SizedBox(width: 8),
+                                                            Text(
+                                                              "Take a Photo",
+                                                              style: AppStyles
+                                                                  .smallWhiteBoldTitleFontStyle,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: AppColors.primaryColor,
+                                          ),
+                                          padding: const EdgeInsets.all(6),
+                                          child: Icon(
+                                            LucideIcons.camera,
+                                            size: 16,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
