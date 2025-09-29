@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
 import 'package:hrm_application/core/widgets/custom_button_widget.dart';
+import 'package:hrm_application/features/attendance/view/attendance_screen.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -405,22 +406,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       itemCount: actionsData.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              spacing: 6,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(actionsData[index]["icon"]),
-                                Text(
-                                  actionsData[index]["title"],
-                                  textAlign: TextAlign.center,
-                                  style: AppStyles.smallBlackBoldTitleFontStyle,
+                        return GestureDetector(
+                          onTap: () {
+                            if (index == 0) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AttendanceScreen(),
                                 ),
-                              ],
+                              );
+                            }
+                          },
+                          child: Card(
+                            color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                spacing: 6,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(actionsData[index]["icon"]),
+                                  Text(
+                                    actionsData[index]["title"],
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        AppStyles.smallBlackBoldTitleFontStyle,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
