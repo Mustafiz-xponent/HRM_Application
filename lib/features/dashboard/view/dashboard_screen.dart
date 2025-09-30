@@ -4,6 +4,7 @@ import 'package:hrm_application/core/theme/app_styles.dart';
 import 'package:hrm_application/core/widgets/custom_button_widget.dart';
 import 'package:hrm_application/features/attendance/view/attendance_screen.dart';
 import 'package:hrm_application/features/leave/view/leave_management_screen.dart';
+import 'package:hrm_application/features/loan/view/loan_management_screen.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -424,8 +425,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   builder: (context) => LeaveManagementScreen(),
                                 ),
                               );
-                            } else if (index == 5) {
-                              // Navigate to Task Management Screen
+                            } else if (index == 4) {
+                              // Navigate to Loan Management Screen
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoanManagementScreen(),
+                                ),
+                              );
                             }
                           },
                           child: Card(
