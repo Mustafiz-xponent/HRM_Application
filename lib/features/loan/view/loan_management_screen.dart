@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -195,6 +196,93 @@ class LoanManagementScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+
+      body: Container(
+        child: Padding(
+          padding: EdgeInsetsGeometry.fromLTRB(20, 10, 20, 0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ShadCard(
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+                    children: [
+                      Row(
+                        spacing: 15,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Color(0xfff0f6ff),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '25,000',
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff1160f2),
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'Total Loan Amount',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff909da6),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Color(0xfffff8ed),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '15,000',
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xfff97316),
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'Total Paid Amount',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff909da6),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
