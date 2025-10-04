@@ -4,9 +4,37 @@ import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-class LoanManagementScreen extends StatelessWidget {
+class LoanManagementScreen extends StatefulWidget {
   const LoanManagementScreen({super.key});
 
+  @override
+  State<LoanManagementScreen> createState() => _LoanManagementScreenState();
+}
+
+class _LoanManagementScreenState extends State<LoanManagementScreen> {
+  List loanHistory = [
+    {
+      'totalAmount': '25000',
+      'emiAmount': '2000',
+      'comments': 'Emergency Household work',
+      'date': '2025-01-15',
+      'status': 'Approved',
+    },
+    {
+      'totalAmount': '45000',
+      'emiAmount': '4000',
+      'comments': 'Personal Work',
+      'date': '2025-02-10',
+      'status': 'Pending',
+    },
+    {
+      'totalAmount': '42000',
+      'emiAmount': '1000',
+      'comments': 'Emergency Household work',
+      'date': '2025-03-05',
+      'status': 'Rejected',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -203,10 +231,12 @@ class LoanManagementScreen extends StatelessWidget {
           padding: EdgeInsetsGeometry.fromLTRB(20, 10, 20, 0),
           child: SingleChildScrollView(
             child: Column(
+              spacing: 15,
               children: [
                 ShadCard(
                   padding: EdgeInsets.all(15),
                   child: Column(
+                    spacing: 10,
                     children: [
                       Row(
                         spacing: 15,
@@ -221,7 +251,7 @@ class LoanManagementScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    '25,000',
+                                    '25,000000',
                                     style: GoogleFonts.balooDa2(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
@@ -234,7 +264,7 @@ class LoanManagementScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.balooDa2(
                                       fontSize: 16,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w500,
                                       color: Color(0xff909da6),
                                     ),
                                   ),
@@ -247,7 +277,7 @@ class LoanManagementScreen extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8.0),
-                                color: Color(0xfffff8ed),
+                                color: Color(0xfff0fcf4),
                               ),
                               padding: EdgeInsets.all(10),
                               child: Column(
@@ -257,7 +287,7 @@ class LoanManagementScreen extends StatelessWidget {
                                     style: GoogleFonts.balooDa2(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
-                                      color: Color(0xfff97316),
+                                      color: Color(0xff119e55),
                                     ),
                                   ),
 
@@ -266,7 +296,7 @@ class LoanManagementScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.balooDa2(
                                       fontSize: 16,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w500,
                                       color: Color(0xff909da6),
                                     ),
                                   ),
@@ -275,6 +305,189 @@ class LoanManagementScreen extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+
+                      Row(
+                        spacing: 15,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Color(0xfffff8ed),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '150,000',
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xfff97316),
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'Remaining Amount',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff909da6),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Color(0xfffbf5ff),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '1',
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff8924bf),
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'Active Loans',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.balooDa2(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff909da6),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Loan History Section
+                ShadCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Loan History',
+                        style: AppStyles.mediumBlackBoldTitleFontStyle,
+                      ),
+
+                      ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: loanHistory.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: EdgeInsets.all(12),
+                            margin: EdgeInsets.only(top: 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Color(0xffe1e5e8)),
+                              color: loanHistory[index]['status'] == "Approved"
+                                  ? Color(0xfff5fafa)
+                                  : loanHistory[index]['status'] == "Pending"
+                                  ? Color(0xfffffcf5)
+                                  : Color(0xfffdf5f5),
+                            ),
+                            child: Column(
+                              spacing: 8,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ShadBadge(
+                                      backgroundColor: Color(0xffd6eaff),
+                                      child: Text(
+                                        "${loanHistory[index]['totalAmount']}",
+                                        style: GoogleFonts.balooDa2(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xff2f59ad),
+                                        ),
+                                      ),
+                                    ),
+
+                                    ShadBadge.outline(
+                                      backgroundColor: Color(0xfff0f6ff),
+                                      child: Text(
+                                        loanHistory[index]['status'],
+                                        style: GoogleFonts.balooDa2(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color:
+                                              loanHistory[index]['status'] ==
+                                                  "Approved"
+                                              ? Color(0xff45967a)
+                                              : loanHistory[index]['status'] ==
+                                                    "Pending"
+                                              ? Color(0xffd1642e)
+                                              : Color(0xffd32f2f),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                Text(
+                                  "EMI Amount: ${loanHistory[index]['emiAmount']}",
+                                  style: GoogleFonts.balooDa2(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xff6c7868),
+                                  ),
+                                ),
+
+                                Row(
+                                  spacing: 6,
+                                  children: [
+                                    Icon(
+                                      LucideIcons.calendar,
+                                      size: 16,
+                                      color: Color(0xff6c7868),
+                                    ),
+
+                                    Text(
+                                      loanHistory[index]['date'],
+                                      style: GoogleFonts.balooDa2(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xff6c7868),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                Text(
+                                  loanHistory[index]['comments'],
+                                  style: GoogleFonts.balooDa2(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xff6c7868),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
