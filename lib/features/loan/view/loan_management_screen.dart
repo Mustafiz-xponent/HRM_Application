@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hrm_application/core/theme/app_colors.dart';
 import 'package:hrm_application/core/theme/app_styles.dart';
+import 'package:hrm_application/core/widgets/custom_dropdown.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class LoanManagementScreen extends StatefulWidget {
@@ -35,6 +36,22 @@ class _LoanManagementScreenState extends State<LoanManagementScreen> {
       'status': 'Rejected',
     },
   ];
+
+  List tenureList = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,29 +73,13 @@ class _LoanManagementScreenState extends State<LoanManagementScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: ShadDialog(
                     title: Text(
-                      "Apply for Leave",
+                      "Apply for Loan",
                       style: AppStyles.mediumBlackBoldTitleFontStyle,
                     ),
 
                     child: Column(
                       spacing: 15,
                       children: [
-                        // Leave Type Dropdown
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Leave Type",
-                              style: AppStyles.smallBlackBoldTitleFontStyle,
-                            ),
-
-                            // CustomDropdown(
-                            //   itemList: itemList,
-                            //   hintText: "leave type",
-                            // ),
-                          ],
-                        ),
-
                         // Dates Selection
                         Row(
                           children: [
@@ -87,18 +88,14 @@ class _LoanManagementScreenState extends State<LoanManagementScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "From",
+                                    "Loan Amount",
                                     style:
                                         AppStyles.smallBlackBoldTitleFontStyle,
                                   ),
 
-                                  ShadDatePicker(
-                                    closeOnSelection: true,
-                                    formatDate: (p0) {
-                                      return DateFormat(
-                                        'dd-MM-yyyy',
-                                      ).format(p0);
-                                    },
+                                  ShadInput(
+                                    placeholder: Text('Loan Amount'),
+                                    keyboardType: TextInputType.emailAddress,
                                   ),
                                 ],
                               ),
@@ -111,21 +108,33 @@ class _LoanManagementScreenState extends State<LoanManagementScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "To",
+                                    "EMI Amount",
                                     style:
                                         AppStyles.smallBlackBoldTitleFontStyle,
                                   ),
 
-                                  ShadDatePicker(
-                                    closeOnSelection: true,
-                                    formatDate: (p0) {
-                                      return DateFormat(
-                                        'dd-MM-yyyy',
-                                      ).format(p0);
-                                    },
+                                  ShadInput(
+                                    placeholder: Text('EMI Amount'),
+                                    keyboardType: TextInputType.emailAddress,
                                   ),
                                 ],
                               ),
+                            ),
+                          ],
+                        ),
+
+                        // Tenure Dropdown
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Tenure (Month)",
+                              style: AppStyles.smallBlackBoldTitleFontStyle,
+                            ),
+
+                            CustomDropdown(
+                              itemList: tenureList,
+                              hintText: "Tenure",
                             ),
                           ],
                         ),
@@ -135,43 +144,14 @@ class _LoanManagementScreenState extends State<LoanManagementScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Reason for Leave",
+                              "Reason for Loan",
                               style: AppStyles.smallBlackBoldTitleFontStyle,
                             ),
 
                             ShadTextarea(
                               placeholder: Text(
-                                'Please provide deatiled reason for leave requests',
+                                'Please provide deatiled reason for loan requests',
                               ),
-                            ),
-                          ],
-                        ),
-
-                        // Document upload section
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Supporting Document (if any)",
-                              style: AppStyles.smallBlackBoldTitleFontStyle,
-                            ),
-
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: ShadInput(
-                                    placeholder: Text('No file selected'),
-                                    keyboardType: TextInputType.emailAddress,
-                                  ),
-                                ),
-
-                                ShadIconButton(
-                                  backgroundColor: AppColors.primaryColor,
-                                  height: 35,
-                                  onPressed: () {},
-                                  icon: Icon(LucideIcons.upload, size: 20),
-                                ),
-                              ],
                             ),
                           ],
                         ),
